@@ -1,5 +1,5 @@
 {% set name = "clikit" %}
-{% set version = "0.3.0" %}
+{% set version = "0.3.1" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: b49e0c70577b61fa4458c58e34fe05805f8e9fab0f4d932bed1d61df433e0cbe
+  sha256: 979a7442ca1be1eaa9fae3e0ab7d63828b85fd42ded2d6954340a8b926500b39
 
 build:
   noarch: python
