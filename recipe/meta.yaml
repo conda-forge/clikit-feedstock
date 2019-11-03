@@ -1,5 +1,5 @@
 {% set name = "clikit" %}
-{% set version = "0.2.4" %}
+{% set version = "0.3.0" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: d6807cf4a41e6b981b056075c0aefca2db1dabc597ed18fa4d92b8b2e2678835
+  sha256: b49e0c70577b61fa4458c58e34fe05805f8e9fab0f4d932bed1d61df433e0cbe
 
 build:
   noarch: python
@@ -20,7 +20,7 @@ requirements:
     - python
     - poetry >=0.12
 # clikit need poetry to build
-# pip install clikit==0.2.4 --no-binary :all:
+# pip install clikit==0.3.0 --no-binary :all:
 
   run:
     - pastel >=0.1.0,<0.2.0
