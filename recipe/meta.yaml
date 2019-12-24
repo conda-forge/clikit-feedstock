@@ -11,16 +11,16 @@ source:
 
 build:
   noarch: python
-  number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  number: 1
+  script:
+    # we cannot use poetry to install cleo b/c poetry depends on cleo
+    - rm -f pyproject.toml 
+    - "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
   host:
     - pip
     - python
-    - poetry >=0.12
-# clikit need poetry to build
-# pip install clikit==0.3.2 --no-binary :all:
 
   run:
     - pastel >=0.1.0,<0.2.0
