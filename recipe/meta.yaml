@@ -1,21 +1,21 @@
 {% set name = "clikit" %}
-{% set version = "0.4.1" %}
+{% set version = "0.4.2" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 8ae4766b974d7b1983e39d501da9a0aadf118a907a0c9b50714d027c8b59ea81
+  sha256: f67336462800078e0896cf6ecfa3b460dfea4dfa01de659388a4ff0d83c8d6ca
 
 build:
   noarch: python
-  number: 1
+  number: 0
   script:
     # we cannot use poetry to install cleo b/c poetry depends on cleo
-    - rm -f pyproject.toml 
-    - "{{ PYTHON }} -m pip install . -vv"
+    - rm -f pyproject.toml
+    - {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -35,10 +35,10 @@ about:
   home: https://github.com/sdispater/clikit
   license: MIT
   license_family: MIT
-  license_file: LICENSE 
-  summary: "CliKit is a group of utilities to build beautiful and testable command line interfaces."
+  license_file: LICENSE
+  summary: CliKit is a group of utilities to build beautiful and testable command line interfaces.
 
 extra:
   recipe-maintainers:
     - roccqqck
-    
+
