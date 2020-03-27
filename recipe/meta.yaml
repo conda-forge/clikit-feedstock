@@ -1,4 +1,4 @@
-{% set version = "0.4.3" %}
+{% set version = "0.5.0" %}
 
 package:
   name: clikit
@@ -6,30 +6,30 @@ package:
 
 source:
   url: https://pypi.io/packages/source/c/clikit/clikit-{{ version }}.tar.gz
-  sha256: 6e2d7e115e7c7b35bceb0209109935ab2f9ab50910e9ff2293f7fa0b7abf973e
+  sha256: 57fc734d902a5d373d48fa0b2328dfdbde10b03381dc40306e93279cbd130a82
 
 build:
   number: 0
   # This needs selectors to build on py27 and py35
   # b/c conda-forge dropped py35 already and py27 reached EOL we'll make this noarch instead.
   noarch: python
-  script:
-    # clikit cannot depend on itself via poetry
-    - rm -f pyproject.toml
-    - {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
     - python
     - pip
+    - poetry-core
   run:
     - python
     - pastel >=0.2.0,<0.3.0
     - pylev >=1.3,<2.0
+    - woops >=0.2.1,<0.3.0 
 
 test:
   imports:
     - clikit
+    - clikit.adapter
   commands:
     - pip check
   requires:
