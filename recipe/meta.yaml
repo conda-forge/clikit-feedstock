@@ -13,7 +13,9 @@ build:
   # This needs selectors to build on py27 and py35
   # b/c conda-forge dropped py35 already and py27 reached EOL we'll make this noarch instead.
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script:
+    - rm -f pyproject.toml
+    - {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
