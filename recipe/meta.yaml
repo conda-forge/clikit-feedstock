@@ -1,4 +1,4 @@
-{% set version = "0.6.1" %}
+{% set version = "0.6.2" %}
 
 package:
   name: clikit
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/c/clikit/clikit-{{ version }}.tar.gz
-  sha256: 0603e3c19fa106f5df5f224826c92e57221f48ec969e42744173e0458d359354
+  sha256: 442ee5db9a14120635c5990bcdbfe7c03ada5898291f0c802f77be71569ded59
 
 build:
   number: 0
