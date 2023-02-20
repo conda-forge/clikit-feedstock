@@ -11,13 +11,14 @@ source:
 
 build:
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: 
+    - {{ PYTHON }} -c "__import__('pathlib').Path('pyproject.toml').unlink()"
+    - {{ PYTHON }} -m pip install . -vv
   number: 1
 
 requirements:
   host:
     - python >=3.7
-    - poetry-core >=1.0.0a5
     - pip
   run:
     - python >=3.7
@@ -29,8 +30,7 @@ test:
     - clikit
     - clikit.adapter
   commands:
-    # pip doesn't know that crashtest is only for py=36
-    # - pip check
+    - pip check
   requires:
     - pip
 
