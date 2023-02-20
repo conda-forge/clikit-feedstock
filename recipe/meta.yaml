@@ -16,7 +16,7 @@ build:
   script: 
     - {{ PYTHON }} -c "__import__('pathlib').Path('pyproject.toml').unlink()"
     - {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 2
 
 requirements:
   host:
