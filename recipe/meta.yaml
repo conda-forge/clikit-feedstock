@@ -8,6 +8,8 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/clikit-{{ version }}.tar.gz
   sha256: 442ee5db9a14120635c5990bcdbfe7c03ada5898291f0c802f77be71569ded59
+  patches:
+    - 0000-no-extras.patch
 
 build:
   noarch: python
