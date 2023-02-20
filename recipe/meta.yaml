@@ -8,16 +8,19 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/clikit-{{ version }}.tar.gz
   sha256: 442ee5db9a14120635c5990bcdbfe7c03ada5898291f0c802f77be71569ded59
+  patches:
+    - 0000-no-extras.patch
 
 build:
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  script: 
+    - {{ PYTHON }} -c "__import__('pathlib').Path('pyproject.toml').unlink()"
+    - {{ PYTHON }} -m pip install . -vv
+  number: 2
 
 requirements:
   host:
     - python >=3.7
-    - poetry-core >=1.0.0a5
     - pip
   run:
     - python >=3.7
@@ -29,8 +32,7 @@ test:
     - clikit
     - clikit.adapter
   commands:
-    # pip doesn't know that crashtest is only for py=36
-    # - pip check
+    - pip check
   requires:
     - pip
 
