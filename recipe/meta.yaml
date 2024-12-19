@@ -15,12 +15,13 @@ build:
   noarch: python
   script: 
     - {{ PYTHON }} -c "__import__('pathlib').Path('pyproject.toml').unlink()"
-    - {{ PYTHON }} -m pip install . -vv
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 3
 
 requirements:
   host:
     - python {{ python_min }}
+    - setuptools
     - pip
   run:
     - python >={{ python_min }}
